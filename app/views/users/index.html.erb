@@ -1,0 +1,19 @@
+<h3><%= link_to "みんなの投稿ライブ一覧", gigs_path %></h3>
+
+<h1>ユーザーのみんな</h1>
+
+<article>
+    <div class="container">
+      
+    <% @users.each do |user| %>
+    
+    <ul class="row col-lg-6">
+      <li class="aaa ">
+        <%= user.name %>さん
+        <%= image_tag user.image %>
+        自己紹介<li><%= user.profile %></li>
+      </li>
+    </ul>
+    <% end %> 
+    </div>
+<article>     

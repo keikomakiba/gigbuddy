@@ -1,0 +1,23 @@
+.about {
+  background-color: white;
+  color: #333;
+  padding: 80px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  text-align: center;
+}
+.top{
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+  background-image: url("/assets/top.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

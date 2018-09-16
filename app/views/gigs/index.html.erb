@@ -1,0 +1,57 @@
+
+<ul class="tab">
+<il><%= link_to "ユーザーのみんな", users_path %></il>
+<il><%= link_to 'ライブ新規投稿', new_gig_path %></il>
+<il>みんなの投稿ライブ一覧</il>
+</ul>
+
+
+<%= search_form_for @search do |f| %>
+<ul class="search">
+  <li>
+    <%= f.label :artist_cont, "artistから検索" %>
+    <%= f.search_field :artist_cont %>
+  </li>
+  <li>
+    <%= f.label :place_cont, "placeから検索" %>
+    <%= f.search_field :place_cont %>
+  </li>
+ 
+  <div class="actions"><%= f.submit "検索" %></div>
+  
+<% end %>
+</ul> 
+
+
+    
+<article>
+    <div class="container">
+      
+    <% @gigs.each do |gig| %>
+    
+    <ul class="row col-lg-6">
+      <li class="aaa ">
+        <%= gig.artist %>
+        <%= gig.place %>
+        <%= image_tag gig.image %>
+         <%= gig.user.name %>さんの投稿
+         <%#= image_tag user.image %>
+      </li>
+        <li class="col-lg-4 col-xs-12 "><%= link_to 'details', gig_path(gig.id), class: 'btn btn-default' %></li>
+        <% if gig.user_id == current_user.id %>
+        <li class="col-lg-4 col-xs-12 "><%= link_to 'edit', edit_gig_path(gig.id), class: 'btn btn-info' %></li>
+        <li class="col-lg-4 col-xs-12 "><%= link_to 'delete', gig_path(gig.id), class: 'btn btn-danger', method: :delete ,data: { confirm: 'Are you sure?' } %></li>
+        
+        <% end %>
+        
+        
+    </ul>
+    
+    <% end %>
+    
+    
+    </div>
+</article>
+
+<%= page_entries_info @gigs %>
+<%= paginate @gigs %>

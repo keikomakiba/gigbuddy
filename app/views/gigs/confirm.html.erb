@@ -1,0 +1,19 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @gig, url: gigs_path, local: true) do |form| %>
+  <%= form.hidden_field :artist %>
+  <%= form.hidden_field :place %>
+  <%= form.hidden_field :image_cache %>
+  
+  <p>artist:<%= @gig.artist %></p>
+  <p>place:<%= @gig.place %></p>
+  <p>image<%= image_tag(@gig.image) %></p>
+  
+  <%= form.submit "投稿する" %>
+<% end %>
+<%= form_with(model: @gig, url: new_gig_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :artist %>
+  <%= form.hidden_field :place %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "もどる", name: 'back' %>
+<% end %>
