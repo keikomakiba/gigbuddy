@@ -5,8 +5,6 @@ class CommentsController < ApplicationController
     @comment = @gig.comments.build(comment_params)
     @comment.user_id = current_user.id
     
-    # クライアント要求に応じてフォーマットを変更
-    
     respond_to do |format|
     if @comment.save
         format.js { redirect_to gig_path(@gig),notice: '投稿しました' }
