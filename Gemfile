@@ -67,3 +67,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'letter_opener_web'
   gem 'kaminari'
   gem 'ransack'
+  gem 'rails_12factor', group: :production
