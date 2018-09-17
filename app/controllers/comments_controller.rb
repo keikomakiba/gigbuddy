@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
     if @comment.save
-        format.js { redirect_to gig_path(@gig),notice: '投稿しました' }
+        format.js { redirect_to gig_path(@gig)}#,notice: '投稿しました' 
       else
         format.html { redirect_to gig_path(@gig), notice: '投稿できませんでした...' }
     end

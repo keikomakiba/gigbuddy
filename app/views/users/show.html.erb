@@ -7,9 +7,11 @@
            <li><%= image_tag(@user.image.url) %></li>
            <li>自己紹介</li>
            <li><%= @user.profile %></li>
-           <%# if @user.id == current_user.id %>
-           <li><%= link_to "edit profile", edit_user_path(@user),class: 'btn btn-info' %></li>
-           <%# end %>
+           <% if logged_in? %>
+             <% if @user.id == current_user.id %>
+               <li><%= link_to "edit profile", edit_user_path(@user),class: 'btn btn-info' %></li>
+             <% end %>
+            <% end %>
     </ul>
 </div>    
 
