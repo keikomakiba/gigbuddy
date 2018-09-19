@@ -17,9 +17,10 @@
   </h2>
   
   <p>このライブに参加する人</p>
+  <p>参加者<%= @gig.participants.count %>人です</p>
   <% @gig.participant_users.each do |user| %>
   <li><%= user.name %>さん</li>
-  <p>参加者<%= @gig.participants.count %>人です</p>
+  
 
   <% end %>
 

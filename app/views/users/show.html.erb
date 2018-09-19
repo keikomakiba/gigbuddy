@@ -1,6 +1,9 @@
+<body>
+    <h3><%= link_to "みんなの投稿ライブ一覧", gigs_path %></h3>
+
 
 <div class="profile">  
-    <ul class="row col-lg-6">
+    <ul>
         
         
            <li><%= @user.name %></li>
@@ -15,18 +18,19 @@
     </ul>
 </div>    
 
-<div class="participant">
-    
+<div class="participant">    
     <h3><%= @user.name %>さんの参加ライブ一覧</h3>
+    
+    <% @participants_gigs.each do |gig| %>
+      <ul>   
+          <li><%= gig.artist %></li>
+          <li><%= gig.place %></li>
+          <li><%= image_tag gig.image %></li>
+          <li><%= link_to 'details', gig_path(gig.id), class: 'btn btn-info' %></li>
+      </ul>
+    <% end %>
     
 </div>
 
-<% @participants_gigs.each do |participant| %>
-<li><%= participant.artist %>
-<%= participant.place %></li>
-<li><%= image_tag participant.image %></li>
 
-<% end %>
-<h3><%= link_to "みんなの投稿ライブ一覧", gigs_path %></h3>
-
-
+</body>

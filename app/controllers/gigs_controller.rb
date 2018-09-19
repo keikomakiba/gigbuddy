@@ -42,7 +42,7 @@ class GigsController < ApplicationController
     @participant = current_user.participants.find_by(gig_id: @gig.id)
     @comments = @gig.comments
     @comment = @gig.comments.build
- 
+    
   end
   
   

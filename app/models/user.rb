@@ -15,4 +15,6 @@ class User < ApplicationRecord
     has_many :participant_gigs, through: :participants, source: :gig
     has_many :comments, dependent: :destroy
     
+    #belongs_to :gig #9-18追加
+    
 end

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
  def create
-    # Blogをパラメータの値から探し出し,Blogに紐づくcommentsとしてbuildします。
+    # gigをパラメータの値から探し出し,gigに紐づくcommentsとしてbuildします。
     @gig = Gig.find(params[:gig_id])
     @comment = @gig.comments.build(comment_params)
     @comment.user_id = current_user.id
