@@ -1,15 +1,14 @@
 <%= form_with(model: @gig, local: true ,url: choose_new_or_edit ) do |form| %>
-<% if @gig.errors.any? %>
+  <% if @gig.errors.any? %>
     <div id="error_explanation">
       <h2><%= @gig.errors.count %>件のエラーがあります。</h2>
       <ul>
         <% @gig.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-  
   
   <div class="gig_title">
     <%= form.label :artist %>
@@ -20,9 +19,9 @@
     <%= form.text_field :place %>
   </div>
   <div class="field">
-  <%= form.label :image %>
-  <%= form.file_field :image, id: :gig_image %>
-  <%= image_tag(@gig.image.url) if @gig.image.url %>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :gig_image %>
+    <%= image_tag(@gig.image.url) if @gig.image.url %>
   </div>
   <%= form.submit %>
 <% end %>

@@ -3,17 +3,15 @@
 <h1>ユーザーのみんな</h1>
 
 <article>
-    <div class="container">
-      
+  <div class="container">
     <% @users.each do |user| %>
-    
-    <ul class="row col-lg-6">
-      <li class="aaa ">
+      <ul class="row col-lg-6">
+        <li class="aaa ">
         <%= user.name %>さん
         <%= image_tag user.image %>
         自己紹介<li><%= user.profile %></li>
-      </li>
-    </ul>
+        </li>
+      </ul>
     <% end %> 
-    </div>
+  </div>
 <article>     

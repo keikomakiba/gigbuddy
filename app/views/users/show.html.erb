@@ -1,36 +1,30 @@
 <body>
-    <h3><%= link_to "みんなの投稿ライブ一覧", gigs_path %></h3>
-
-
-<div class="profile">  
+  <h3><%= link_to "みんなの投稿ライブ一覧", gigs_path %></h3>
+  
+  <div class="profile">  
     <ul>
-        
-        
-           <li><%= @user.name %></li>
-           <li><%= image_tag(@user.image.url) %></li>
-           <li>自己紹介</li>
-           <li><%= @user.profile %></li>
-           <% if logged_in? %>
-             <% if @user.id == current_user.id %>
-               <li><%= link_to "edit profile", edit_user_path(@user),class: 'btn btn-info' %></li>
-             <% end %>
-            <% end %>
+      <li><%= @user.name %></li>
+      <li><%= image_tag(@user.image.url) %></li>
+      <li>自己紹介</li>
+      <li><%= @user.profile %></li>
+      <% if logged_in? %>
+        <% if @user.id == current_user.id %>
+      <li><%= link_to "edit profile", edit_user_path(@user),class: 'btn btn-info' %></li>
+        <% end %>
+      <% end %>
     </ul>
-</div>    
+  </div>    
 
-<div class="participant">    
+  <div class="participant">    
     <h3><%= @user.name %>さんの参加ライブ一覧</h3>
     
     <% @participants_gigs.each do |gig| %>
       <ul>   
-          <li><%= gig.artist %></li>
-          <li><%= gig.place %></li>
-          <li><%= image_tag gig.image %></li>
-          <li><%= link_to 'details', gig_path(gig.id), class: 'btn btn-info' %></li>
+        <li><%= gig.artist %></li>
+        <li><%= gig.place %></li>
+        <li><%= image_tag gig.image %></li>
+        <li><%= link_to 'details', gig_path(gig.id), class: 'btn btn-info' %></li>
       </ul>
     <% end %>
-    
-</div>
-
-
+  </div>
 </body>

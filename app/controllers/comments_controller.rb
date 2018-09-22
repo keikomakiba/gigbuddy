@@ -1,18 +1,17 @@
 class CommentsController < ApplicationController
- def create
-    # gigをパラメータの値から探し出し,gigに紐づくcommentsとしてbuildします。
+  def create
     @gig = Gig.find(params[:gig_id])
     @comment = @gig.comments.build(comment_params)
     @comment.user_id = current_user.id
     
     respond_to do |format|
-    if @comment.save
+      if @comment.save
         format.js { redirect_to gig_path(@gig)}#,notice: '投稿しました' 
       else
         format.html { redirect_to gig_path(@gig), notice: '投稿できませんでした...' }
+      end
     end
-    end
- end
+  end
 
   def destroy
     @comment = Comment.find(params[:id])
@@ -20,7 +19,6 @@ class CommentsController < ApplicationController
       render :index
     end
   end
-  
   
   private
   # ストロングパラメーター

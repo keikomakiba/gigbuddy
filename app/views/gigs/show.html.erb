@@ -9,32 +9,26 @@
   <%= image_tag @gig.image %>
 </div>
   
-  <h2><% if @participant.present? %>
-    <%= link_to '参加やめる！', participant_path(id: @participant.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to '参加する！', participants_path(gig_id: @gig.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
+  <h2>
+    <% if @participant.present? %>
+      <%= link_to '参加やめる！', participant_path(id: @participant.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to '参加する！', participants_path(gig_id: @gig.id), method: :post, class: 'btn btn-primary' %>
+    <% end %>
   </h2>
   
   <p>このライブに参加する人</p>
   <p>参加者<%= @gig.participants.count %>人です</p>
-  <% @gig.participant_users.each do |user| %>
-  <li><%= user.name %>さん</li>
-  
-
-  <% end %>
-
+    <% @gig.participant_users.each do |user| %>
+    <li><%= user.name %>さん</li>
+    <% end %>
 <!--9/15追加-->
-
 <div class="container">
   <p>コメント一覧</p>
-  
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, gig: @gig } %>
- 
-  <%= render partial: 'comments/form', locals: { comment: @comment, gig: @gig } %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, gig: @gig } %>
   </div>
-
 </div>
 
 <h5><%= link_to 'Back', gigs_path %></h5>
