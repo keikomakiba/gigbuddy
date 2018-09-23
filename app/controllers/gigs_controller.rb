@@ -1,7 +1,6 @@
 class GigsController < ApplicationController
   before_action :set_gig, only: [:show, :edit, :destroy, :update]
   before_action :log_in?, only: [:new, :edit, :show, :destroy, :index] 
-    
   def index
     @gig = Gig.all.order(created_at: :desc)
     @search = Gig.ransack(params[:q])
@@ -63,7 +62,6 @@ class GigsController < ApplicationController
   end
   
   private
-
   def log_in?
     if current_user.blank?
       redirect_to new_session_path

@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     @gig = Gig.find(params[:gig_id])
     @comment = @gig.comments.build(comment_params)
     @comment.user_id = current_user.id
-    
     respond_to do |format|
       if @comment.save
         format.js { redirect_to gig_path(@gig)}#,notice: '投稿しました' 
@@ -21,7 +20,6 @@ class CommentsController < ApplicationController
   end
   
   private
-  # ストロングパラメーター
   def comment_params
     params.require(:comment).permit(:gig_id, :content, :user_id)
   end
